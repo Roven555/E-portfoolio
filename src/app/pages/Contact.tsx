@@ -114,7 +114,7 @@ export default function Contact() {
           }}
           className="text-sm"
         >
-          {'</> Loodud armastusega by Roven Piho 2026'}
+          {'Roven Piho 2026'}
         </p>
       </div>
     </div>
