@@ -170,11 +170,8 @@ export default function Home() {
               }}
               className="text-lg mb-2 group-hover:opacity-80 transition-opacity"
             >
-              Rakenduse Loomine
+              Filmide haldamise äpp
             </h3>
-            <p style={{ color: '#888888' }} className="text-sm">
-              Tarkvara arendusmeetodid ja best practices projekti
-            </p>
           </a>
 
           {/* Project 2 */}
@@ -207,11 +204,8 @@ export default function Home() {
               }}
               className="text-lg mb-2 group-hover:opacity-80 transition-opacity"
             >
-              Ephod
+              E-pood
             </h3>
-            <p style={{ color: '#888888' }} className="text-sm">
-              Andmebaaside ja rakenduste integratsioon
-            </p>
           </a>
         </div>
       </section>
