@@ -25,7 +25,7 @@ export default function Home() {
             }}
             className="mb-4"
           >
-            Roven Piho // Noorem tarkvaraarendaja
+            Roven Piho // Junior Software Developer
           </h1>
           <div
             style={{
@@ -36,10 +36,10 @@ export default function Home() {
             className="text-base md:text-lg leading-relaxed"
           >
             <p className="mb-3">
-              19-aastane arendaja Eestist. Mulle meeldib alustada nullist ja näha projekti ellu ärkamist.
+              19-year-old developer from Estonia. I enjoy starting from scratch and watching a project come to life.
             </p>
             <p>
-              Minu teekond algas mänguserveritega ja on kasvanud kireks tarkvaraarenduse vastu.
+              My journey began with game servers and has grown into a passion for software development.
             </p>
           </div>
         </div>
@@ -54,7 +54,7 @@ export default function Home() {
           }}
           className="text-2xl md:text-3xl mb-6"
         >
-          {'> Isiksus'}
+          {'> Personality'}
         </h2>
         <div
           style={{
@@ -68,24 +68,24 @@ export default function Home() {
               <div style={{ color: '#FFB000', fontFamily: 'Space Mono, monospace' }} className="mb-2">
                 🥊 MMA
               </div>
-              <p style={{ color: '#888888' }} className="text-sm">
-                Huvitun MMA-st ja spordist
+                <p style={{ color: '#888888' }} className="text-sm">
+                Interested in MMA and sports
               </p>
             </div>
             <div>
               <div style={{ color: '#FFB000', fontFamily: 'Space Mono, monospace' }} className="mb-2">
-                💪 Aktiivne
+                💪 Active
               </div>
-              <p style={{ color: '#888888' }} className="text-sm">
-                Aktiivne eluviis ja tervislik elamine
+                <p style={{ color: '#888888' }} className="text-sm">
+                Active lifestyle and healthy living
               </p>
             </div>
             <div>
               <div style={{ color: '#FFB000', fontFamily: 'Space Mono, monospace' }} className="mb-2">
-                🎯 Distsiplineeritud
+                🎯 Disciplined
               </div>
-              <p style={{ color: '#888888' }} className="text-sm">
-                Tugev distsipliin ja järjepidevus
+                <p style={{ color: '#888888' }} className="text-sm">
+                Strong discipline and consistency
               </p>
             </div>
           </div>
@@ -101,7 +101,7 @@ export default function Home() {
           }}
           className="text-2xl md:text-3xl mb-6"
         >
-          {'> Tehnilised oskused'}
+          {'> Technical Skills'}
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {skills.map((skill) => (
@@ -137,7 +137,7 @@ export default function Home() {
           }}
           className="text-2xl md:text-3xl mb-6"
         >
-          {'> Projektid'}
+          {'> Projects'}
         </h2>
         <div className="grid md:grid-cols-2 gap-6">
           {/* Project 1 */}
@@ -170,7 +170,7 @@ export default function Home() {
               }}
               className="text-lg mb-2 group-hover:opacity-80 transition-opacity"
             >
-              Filmide haldamise äpp
+              Movie Management App
             </h3>
           </a>
 
@@ -204,7 +204,7 @@ export default function Home() {
               }}
               className="text-lg mb-2 group-hover:opacity-80 transition-opacity"
             >
-              E-pood
+              E-commerce Store
             </h3>
           </a>
         </div>
@@ -219,7 +219,7 @@ export default function Home() {
           }}
           className="text-2xl md:text-3xl mb-6"
         >
-          {'> Saavutused'}
+          {'> Achievements'}
         </h2>
         <div
           style={{
@@ -246,13 +246,13 @@ export default function Home() {
                 }}
                 className="text-xl mb-2"
               >
-                Häkatoni üks parimaid projekte
+                One of the top projects at the hackathon
               </h3>
               <p style={{ color: '#FFFFFF' }} className="mb-2">
-                Häkatoni projektis osaline
+                Participant in a hackathon project
               </p>
               <p style={{ color: '#888888' }} className="text-sm mb-4">
-                Tiimitöö ja innovatsioon praktikas
+                Teamwork and innovation in practice
               </p>
               <a
                 href="https://github.com/marthansschmidt/H2katon"
@@ -264,7 +264,7 @@ export default function Home() {
                 }}
                 className="inline-flex items-center gap-2 hover:opacity-80 transition-opacity"
               >
-                Vaata projekti →
+                View project →
                 <ExternalLink size={16} />
               </a>
             </div>

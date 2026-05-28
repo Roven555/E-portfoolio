@@ -4,30 +4,30 @@ export default function Experience() {
   const education = [
     {
       institution: "Põlva Riigigümnaasium",
-      description: "Keskharidus",
+      description: "Secondary education",
       icon: <GraduationCap size={24} />,
     },
     {
       institution: "Tartu Rakenduslik Kolledž (VOCO)",
-      description: "Tarkvaraarenduse õpingud",
+      description: "Studies in Software Development",
       icon: <GraduationCap size={24} />,
     },
   ];
 
   const workExperience = [
     {
-      role: "Ehitaja",
-      description: "Füüsiline töö, meeskonnatöö ja vastutus",
+      role: "Construction worker",
+      description: "Physical work, teamwork, and responsibility",
       icon: <Briefcase size={24} />,
     },
     {
-      role: "Tootmistööline",
-      description: "Täpsus ja protsesside järgimine",
+      role: "Production worker",
+      description: "Precision and adherence to processes",
       icon: <Briefcase size={24} />,
     },
     {
-      role: "Turvamees",
-      description: "Vastutus, valvsus ja otsustusvõime",
+      role: "Security guard",
+      description: "Responsibility, vigilance, and decision-making",
       icon: <Briefcase size={24} />,
     },
   ];
@@ -41,9 +41,9 @@ export default function Experience() {
   ];
 
   const languages = [
-    { language: "Eesti keel", level: "Emakeel" },
-    { language: "Inglise keel", level: "Ladus" },
-    { language: "Vene keel", level: "Algaja" },
+    { language: "Estonian", level: "Native" },
+    { language: "English", level: "Fluent" },
+    { language: "Russian", level: "Beginner" },
   ];
 
   return (
@@ -57,7 +57,7 @@ export default function Experience() {
           }}
           className="text-2xl md:text-3xl mb-6"
         >
-          {'> Haridus'}
+          {'> Education'}
         </h2>
         <div className="grid md:grid-cols-2 gap-4 md:gap-6">
           {education.map((edu, index) => (
@@ -102,7 +102,7 @@ export default function Experience() {
           }}
           className="text-2xl md:text-3xl mb-6"
         >
-          {'> Töökogemus'}
+          {'> Work Experience'}
         </h2>
         <div
           style={{
@@ -112,7 +112,7 @@ export default function Experience() {
           className="p-6 md:p-8 backdrop-blur-sm mb-4"
         >
           <p style={{ color: '#888888' }} className="mb-6 text-sm md:text-base">
-            Raske töö ja distsipliini vundament
+            A foundation of hard work and discipline
           </p>
           <div className="space-y-4">
             {workExperience.map((job, index) => (
@@ -146,7 +146,7 @@ export default function Experience() {
         </div>
       </section>
 
-      {/* E-Courses Section */}
+      {/* Online Courses Section */}
       <section className="mb-16 md:mb-24">
         <h2
           style={{
@@ -155,7 +155,7 @@ export default function Experience() {
           }}
           className="text-2xl md:text-3xl mb-6"
         >
-          {'> E-kursused'}
+          {'> Online Courses'}
         </h2>
         <div
           style={{
@@ -199,7 +199,7 @@ export default function Experience() {
           }}
           className="text-2xl md:text-3xl mb-6"
         >
-          {'> Õppekäigud'}
+          {'> Study Visits'}
         </h2>
         <div
           style={{
@@ -223,7 +223,7 @@ export default function Experience() {
                 Tartu Inforegister
               </h3>
               <p style={{ color: '#888888' }} className="text-sm">
-                Külastus ettevõttesse, et tutvuda töökeskkonnaga ja praktikatega
+                A visit to the company to learn about the work environment and practices
               </p>
             </div>
           </div>
@@ -239,7 +239,7 @@ export default function Experience() {
           }}
           className="text-2xl md:text-3xl mb-6"
         >
-          {'> Keeled'}
+          {'> Languages'}
         </h2>
         <div className="grid md:grid-cols-3 gap-4">
           {languages.map((lang, index) => (

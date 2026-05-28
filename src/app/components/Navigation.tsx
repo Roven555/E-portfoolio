@@ -7,9 +7,9 @@ export default function Navigation() {
   const location = useLocation();
 
   const navItems = [
-    { path: "/", label: "Avaleht" },
-    { path: "/experience", label: "Kogemus" },
-    { path: "/contact", label: "Kontakt" },
+    { path: "/", label: "Home" },
+    { path: "/experience", label: "Experience" },
+    { path: "/contact", label: "Contact" },
   ];
 
   const isActive = (path: string) => {

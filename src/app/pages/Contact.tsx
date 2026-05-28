@@ -13,10 +13,10 @@ export default function Contact() {
           }}
           className="mb-4"
         >
-          {'> Võtame ühendust'}
+          {'> Let\'s Connect'}
         </h1>
         <p style={{ color: '#888888' }} className="text-lg md:text-xl">
-          Ehitame midagi koos!
+          Let's build something together!
         </p>
       </section>
 
@@ -48,7 +48,7 @@ export default function Contact() {
                 }}
                 className="text-xl"
               >
-                E-post
+                Email
               </h3>
             </div>
             <a
@@ -88,7 +88,7 @@ export default function Contact() {
                 }}
                 className="text-xl"
               >
-                Telefon
+                Phone
               </h3>
             </div>
             <a
