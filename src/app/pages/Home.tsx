@@ -21,6 +21,15 @@ export default function Home() {
       githubUrl: "https://github.com/Roven555/Teraskopp-3",
       tags: ["React", "TypeScript", "Tailwind CSS"],
     },
+    {
+      id: 2,
+      name: "FilmiRiiul",
+      description: "Movie shelf application for browsing, organizing, and keeping track of films in a clean, responsive interface.",
+      image: "/images/FilmiRiiul.png",
+      liveUrl: "https://rakenduse-loomine-rho.vercel.app",
+      githubUrl: "https://github.com/Roven555/Rakenduse-loomine",
+      tags: ["React", "TypeScript", "Tailwind CSS"],
+    },
   ];
 
   return (
