@@ -32,6 +32,18 @@ export default function Home() {
     },
   ];
 
+  const achievements = [
+    {
+      id: 1,
+      name: "One of the top projects at the hackathon",
+      description: "Participant in a hackathon project. Teamwork and innovation in practice.",
+      image: "/images/Suumadin.png",
+      liveUrl: "https://h2katon.vercel.app",
+      githubUrl: "https://github.com/marthansschmidt/H2katon",
+      tags: ["Hackathon", "Teamwork", "Innovation"],
+    },
+  ];
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">
       <style>{`
@@ -368,12 +380,95 @@ export default function Home() {
         >
           {'> Achievements'}
         </h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {achievements.map((achievement) => (
+            <div
+              key={achievement.id}
+              style={{
+                backgroundColor: '#1A1A1A',
+                border: '1px solid #FFB000',
+              }}
+              className="project-card overflow-hidden backdrop-blur-sm group cursor-pointer rounded-lg"
+            >
+              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-gray-800 to-black">
+                <img
+                  src={achievement.image}
+                  alt={achievement.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </div>
+
+              <div className="p-6">
+                <h3
+                  style={{
+                    color: '#FFB000',
+                    fontFamily: 'Space Mono, monospace',
+                  }}
+                  className="text-lg font-bold mb-2 group-hover:text-yellow-300 transition-colors"
+                >
+                  {achievement.name}
+                </h3>
+                <p style={{ color: '#CCCCCC' }} className="text-sm mb-4 line-clamp-2 leading-relaxed">
+                  {achievement.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {achievement.tags.map((tag, idx) => (
+                    <span
+                      key={tag}
+                      style={{
+                        backgroundColor: '#FFB00020',
+                        color: '#FFB000',
+                        border: '1px solid #FFB000',
+                        animation: `fadeInUp 0.4s ease-out ${0.1 * idx}s both`,
+                      }}
+                      className="text-xs px-3 py-1 rounded-full font-medium transition-all duration-300 hover:bg-yellow-500/20"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex gap-3">
+                  <a
+                    href={achievement.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      backgroundColor: '#FFB000',
+                      color: '#0F0F0F',
+                    }}
+                    className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg font-semibold hover:brightness-110 transition-all duration-300 text-sm hover:shadow-lg hover:shadow-yellow-500/50"
+                  >
+                    <ExternalLink size={16} />
+                    Live Site
+                  </a>
+                  <a
+                    href={achievement.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      backgroundColor: '#FFB00020',
+                      color: '#FFB000',
+                      border: '1px solid #FFB000',
+                    }}
+                    className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg font-semibold hover:bg-yellow-500/30 transition-all duration-300 text-sm glow-border"
+                  >
+                    <Github size={16} />
+                    GitHub
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
         <div
           style={{
             backgroundColor: '#1A1A1A',
             border: '1px solid #FFB000',
           }}
-          className="p-6 md:p-8 backdrop-blur-sm glow-border rounded-lg transition-all duration-300"
+          className="hidden p-6 md:p-8 backdrop-blur-sm glow-border rounded-lg transition-all duration-300"
         >
           <div className="flex items-start gap-4">
             <div

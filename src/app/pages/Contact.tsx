@@ -1,4 +1,4 @@
-import { Mail, Phone } from "lucide-react";
+import { Github, Mail, Phone } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -51,6 +51,7 @@ export default function Contact() {
 
         .contact-card:nth-child(1) { animation-delay: 0s; }
         .contact-card:nth-child(2) { animation-delay: 0.2s; }
+        .contact-card:nth-child(3) { animation-delay: 0.4s; }
 
         .glow-border:hover {
           box-shadow: 0 0 20px rgba(255, 176, 0, 0.6), inset 0 0 20px rgba(255, 176, 0, 0.05);
@@ -80,7 +81,7 @@ export default function Contact() {
 
       {/* Contact Info Cards */}
       <section className="mb-16 md:mb-24">
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {/* Email Card */}
           <div
             style={{
@@ -158,6 +159,48 @@ export default function Contact() {
               className="text-lg md:text-xl hover:text-yellow-300 transition-colors duration-300 font-semibold"
             >
               +372 58141403
+            </a>
+          </div>
+
+          {/* GitHub Card */}
+          <div
+            style={{
+              backgroundColor: '#1A1A1A',
+              border: '2px solid #FFB000',
+            }}
+            className="contact-card p-8 backdrop-blur-sm hover:scale-105 transition-all duration-300 glow-border rounded-lg"
+          >
+            <div className="flex items-center gap-4 mb-4">
+              <div
+                style={{
+                  backgroundColor: '#FFB000',
+                  color: '#0F0F0F',
+                }}
+                className="p-3 rounded-lg transition-transform duration-300 hover:scale-110"
+              >
+                <Github size={28} />
+              </div>
+              <h3
+                style={{
+                  color: '#FFB000',
+                  fontFamily: 'Space Mono, monospace',
+                }}
+                className="text-xl font-bold"
+              >
+                GitHub
+              </h3>
+            </div>
+            <a
+              href="https://github.com/Roven555"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: '#FFFFFF',
+                fontFamily: 'Space Mono, monospace',
+              }}
+              className="text-lg md:text-xl hover:text-yellow-300 transition-colors duration-300 break-all font-semibold"
+            >
+              github.com/Roven555
             </a>
           </div>
         </div>
