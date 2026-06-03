@@ -1,5 +1,5 @@
 import type { MouseEvent } from "react";
-import { ArrowDown, Award, ExternalLink, Github } from "lucide-react";
+import { ArrowDown, ExternalLink, Github } from "lucide-react";
 
 export default function Home() {
   const scrollToProjects = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -69,17 +69,23 @@ export default function Home() {
       githubUrl: "https://github.com/Roven555/Rakenduse-loomine",
       tags: ["React", "TypeScript", "Tailwind CSS"],
     },
-  ];
-
-  const achievements = [
     {
-      id: 1,
-      name: "One of the top projects at the hackathon",
-      description: "Participant in a hackathon project. Teamwork and innovation in practice.",
+      id: 3,
+      name: "Bootstrap Practice",
+      description: "Responsive website built to practice Bootstrap 5 components, layout utilities, and clean section-based page structure.",
+      image: "/images/Bootstrap.png",
+      liveUrl: "https://bootstrap-rosy-rho.vercel.app/#intro",
+      githubUrl: "https://github.com/Roven555/Bootstrapp5",
+      tags: ["Bootstrap 5", "HTML", "CSS"],
+    },
+    {
+      id: 4,
+      name: "Hackathon Team Project",
+      description: "Team-built hackathon project that received recognition as one of the top projects. I contributed as part of a collaborative development team.",
       image: "/images/Suumadin.png",
       liveUrl: "https://h2katon.vercel.app",
       githubUrl: "https://github.com/marthansschmidt/H2katon",
-      tags: ["Hackathon", "Teamwork", "Innovation"],
+      tags: ["Hackathon", "Teamwork", "Recognition"],
     },
   ];
 
@@ -246,7 +252,7 @@ export default function Home() {
               }}
               className="text-sm"
             >
-              2 projects / 1 hackathon achievement
+              4 projects
             </div>
           </div>
         </div>
@@ -432,150 +438,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Achievement Section */}
-      <section>
-        <h2
-          style={{
-            fontFamily: 'Space Mono, monospace',
-            color: '#FFB000',
-          }}
-          className="section-title text-2xl md:text-3xl mb-6"
-        >
-          {'> Achievements'}
-        </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {achievements.map((achievement) => (
-            <div
-              key={achievement.id}
-              style={{
-                backgroundColor: '#1A1A1A',
-                border: '1px solid #FFB000',
-              }}
-              className="project-card overflow-hidden backdrop-blur-sm group cursor-pointer rounded-lg"
-            >
-              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-gray-800 to-black">
-                <img
-                  src={achievement.image}
-                  alt={achievement.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-
-              <div className="p-6">
-                <h3
-                  style={{
-                    color: '#FFB000',
-                    fontFamily: 'Space Mono, monospace',
-                  }}
-                  className="text-lg font-bold mb-2 group-hover:text-yellow-300 transition-colors"
-                >
-                  {achievement.name}
-                </h3>
-                <p style={{ color: '#CCCCCC' }} className="text-sm mb-4 line-clamp-2 leading-relaxed">
-                  {achievement.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {achievement.tags.map((tag, idx) => (
-                    <span
-                      key={tag}
-                      style={{
-                        backgroundColor: '#FFB00020',
-                        color: '#FFB000',
-                        border: '1px solid #FFB000',
-                        animation: `fadeInUp 0.4s ease-out ${0.1 * idx}s both`,
-                      }}
-                      className="text-xs px-3 py-1 rounded-full font-medium transition-all duration-300 hover:bg-yellow-500/20"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex gap-3">
-                  <a
-                    href={achievement.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      backgroundColor: '#FFB000',
-                      color: '#0F0F0F',
-                    }}
-                    className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg font-semibold hover:brightness-110 transition-all duration-300 text-sm hover:shadow-lg hover:shadow-yellow-500/50"
-                  >
-                    <ExternalLink size={16} />
-                    Live Site
-                  </a>
-                  <a
-                    href={achievement.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      backgroundColor: '#FFB00020',
-                      color: '#FFB000',
-                      border: '1px solid #FFB000',
-                    }}
-                    className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg font-semibold hover:bg-yellow-500/30 transition-all duration-300 text-sm glow-border"
-                  >
-                    <Github size={16} />
-                    GitHub
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div
-          style={{
-            backgroundColor: '#1A1A1A',
-            border: '1px solid #FFB000',
-          }}
-          className="hidden p-6 md:p-8 backdrop-blur-sm glow-border rounded-lg transition-all duration-300"
-        >
-          <div className="flex items-start gap-4">
-            <div
-              style={{
-                backgroundColor: '#FFB000',
-                color: '#0F0F0F',
-              }}
-              className="p-3 rounded-lg flex-shrink-0 transition-transform duration-300 hover:scale-110"
-            >
-              <Award size={32} />
-            </div>
-            <div className="flex-1">
-              <h3
-                style={{
-                  color: '#FFB000',
-                  fontFamily: 'Space Mono, monospace',
-                }}
-                className="text-xl font-bold mb-2"
-              >
-                One of the top projects at the hackathon
-              </h3>
-              <p style={{ color: '#FFFFFF' }} className="mb-2 leading-relaxed">
-                Participant in a hackathon project
-              </p>
-              <p style={{ color: '#888888' }} className="text-sm mb-4">
-                Teamwork and innovation in practice
-              </p>
-              <a
-                href="https://github.com/marthansschmidt/H2katon"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  color: '#FFB000',
-                  fontFamily: 'Space Mono, monospace',
-                }}
-                className="inline-flex items-center gap-2 hover:text-yellow-300 transition-colors duration-300 font-semibold group"
-              >
-                View project →
-                <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
