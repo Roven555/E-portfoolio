@@ -41,20 +41,20 @@ export default function Home() {
   };
 
   const skills = [
-    { name: "HTML", icon: "🌐" },
-    { name: "CSS", icon: "🎨" },
-    { name: "JavaScript", icon: "⚡" },
-    { name: "React.js", icon: "⚛️" },
-    { name: "Node.js", icon: "🔧" },
-    { name: "MySQL", icon: "🗄️" },
-    { name: "MongoDB", icon: "🍃" },
+    { name: "HTML", iconClass: "devicon-html5-plain colored" },
+    { name: "CSS", iconClass: "devicon-css3-plain colored" },
+    { name: "JavaScript", iconClass: "devicon-javascript-plain colored" },
+    { name: "React.js", iconClass: "devicon-react-original colored" },
+    { name: "Node.js", iconClass: "devicon-nodejs-plain-wordmark colored" },
+    { name: "MySQL", iconClass: "devicon-mysql-plain-wordmark colored" },
+    { name: "MongoDB", iconClass: "devicon-mongodb-plain-wordmark colored" },
   ];
 
   const projects = [
     {
       id: 1,
       name: "Teraskopp OÜ",
-      description: "Professional website for a timber and forest machinery business showcasing services, equipment, and expertise in the forestry industry.",
+      description: "Website for a timber and forest machinery business showcasing services and equipment.",
       image: "/images/Teraskopp.png",
       liveUrl: "https://teraskopp3.vercel.app",
       githubUrl: "https://github.com/Roven555/Teraskopp-3",
@@ -63,7 +63,7 @@ export default function Home() {
     {
       id: 2,
       name: "FilmiRiiul",
-      description: "Movie shelf application for browsing, organizing, and keeping track of films in a clean, responsive interface.",
+      description: "Movie shelf app for browsing, organizing, and tracking films in a clean interface.",
       image: "/images/FilmiRiiul.png",
       liveUrl: "https://rakenduse-loomine-rho.vercel.app",
       githubUrl: "https://github.com/Roven555/Rakenduse-loomine",
@@ -72,7 +72,7 @@ export default function Home() {
     {
       id: 3,
       name: "Bootstrap Practice",
-      description: "Responsive website built to practice Bootstrap 5 components, layout utilities, and clean section-based page structure.",
+      description: "Responsive website built to practice Bootstrap 5 components and layout utilities.",
       image: "/images/Bootstrap.png",
       liveUrl: "https://bootstrap-rosy-rho.vercel.app/#intro",
       githubUrl: "https://github.com/Roven555/Bootstrapp5",
@@ -81,7 +81,7 @@ export default function Home() {
     {
       id: 4,
       name: "Hackathon Team Project",
-      description: "Team-built hackathon project that received recognition as one of the top projects. I contributed as part of a collaborative development team.",
+      description: "Team-built hackathon project that received recognition as one of the top projects.",
       image: "/images/Suumadin.png",
       liveUrl: "https://h2katon.vercel.app",
       githubUrl: "https://github.com/marthansschmidt/H2katon",
@@ -245,15 +245,6 @@ export default function Home() {
               View Projects
               <ArrowDown size={18} />
             </a>
-            <div
-              style={{
-                color: '#CCCCCC',
-                fontFamily: 'Space Mono, monospace',
-              }}
-              className="text-sm"
-            >
-              4 projects
-            </div>
           </div>
         </div>
       </section>
@@ -319,9 +310,12 @@ export default function Home() {
                 backgroundColor: '#1A1A1A',
                 border: '1px solid #FFB000',
               }}
-              className="skill-item p-4 text-center hover:scale-110 transition-all duration-300 cursor-pointer backdrop-blur-sm glow-border rounded-lg"
+              className="skill-item group p-4 text-center hover:scale-110 transition-all duration-300 cursor-pointer backdrop-blur-sm glow-border rounded-lg"
             >
-              <div className="text-4xl mb-3 transition-transform duration-300 hover:animate-bounce">{skill.icon}</div>
+              <i
+                className={`${skill.iconClass} block text-5xl mb-3 transition-transform duration-300 group-hover:animate-bounce`}
+                aria-hidden="true"
+              />
               <div
                 style={{
                   color: '#FFFFFF',
@@ -378,7 +372,7 @@ export default function Home() {
                 >
                   {project.name}
                 </h3>
-                <p style={{ color: '#CCCCCC' }} className="text-sm mb-4 line-clamp-2 leading-relaxed">
+                <p style={{ color: '#CCCCCC' }} className="text-sm mb-4 leading-relaxed">
                   {project.description}
                 </p>
 
