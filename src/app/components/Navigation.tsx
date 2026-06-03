@@ -8,12 +8,18 @@ export default function Navigation() {
 
   const navItems = [
     { path: "/", label: "Home" },
+    { path: "/#projects", label: "Projects" },
     { path: "/experience", label: "Experience" },
     { path: "/contact", label: "Contact" },
   ];
 
   const isActive = (path: string) => {
-    return location.pathname === path;
+    if (path.includes("#")) {
+      const [pathname, hash] = path.split("#");
+      return location.pathname === pathname && location.hash === `#${hash}`;
+    }
+
+    return location.pathname === path && !location.hash;
   };
 
   return (

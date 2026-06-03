@@ -1,6 +1,45 @@
-import { Code2, Database, Award, ExternalLink, Github } from "lucide-react";
+import type { MouseEvent } from "react";
+import { ArrowDown, Award, ExternalLink, Github } from "lucide-react";
 
 export default function Home() {
+  const scrollToProjects = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+
+    const target = document.querySelector("#projects");
+    if (!target) {
+      return;
+    }
+
+    const startPosition = window.scrollY;
+    const targetPosition = target.getBoundingClientRect().top + window.scrollY - 96;
+    const distance = targetPosition - startPosition;
+    const duration = 1600;
+    let startTime: number | null = null;
+
+    const easeInOutCubic = (progress: number) =>
+      progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+    const animateScroll = (currentTime: number) => {
+      if (startTime === null) {
+        startTime = currentTime;
+      }
+
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      window.scrollTo(0, startPosition + distance * easeInOutCubic(progress));
+
+      if (progress < 1) {
+        window.requestAnimationFrame(animateScroll);
+      }
+    };
+
+    window.requestAnimationFrame(animateScroll);
+    window.history.pushState(null, "", "#projects");
+  };
+
   const skills = [
     { name: "HTML", icon: "🌐" },
     { name: "CSS", icon: "🎨" },
@@ -186,6 +225,30 @@ export default function Home() {
               My journey began with game servers and has grown into a passion for software development.
             </p>
           </div>
+          <div className="hero-description mt-8 flex flex-col sm:flex-row gap-3 sm:items-center">
+            <a
+              href="#projects"
+              onClick={scrollToProjects}
+              style={{
+                backgroundColor: '#FFB000',
+                color: '#0F0F0F',
+                fontFamily: 'Space Mono, monospace',
+              }}
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-semibold hover:brightness-110 transition-all duration-300"
+            >
+              View Projects
+              <ArrowDown size={18} />
+            </a>
+            <div
+              style={{
+                color: '#CCCCCC',
+                fontFamily: 'Space Mono, monospace',
+              }}
+              className="text-sm"
+            >
+              2 projects / 1 hackathon achievement
+            </div>
+          </div>
         </div>
       </section>
 
@@ -268,7 +331,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section className="mb-16 md:mb-24">
+      <section id="projects" className="scroll-mt-24 mb-16 md:mb-24">
         <h2
           style={{
             fontFamily: 'Space Mono, monospace',
