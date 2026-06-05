@@ -7,10 +7,10 @@ export default function Navigation() {
   const location = useLocation();
 
   const navItems = [
-    { path: "/", label: "Home" },
+    { path: "/#about", label: "About" },
+    { path: "/#skills", label: "Skills" },
     { path: "/#projects", label: "Projects" },
-    { path: "/experience", label: "Experience" },
-    { path: "/contact", label: "Contact" },
+    { path: "/#contact", label: "Contact" },
   ];
 
   const isActive = (path: string) => {
@@ -22,15 +22,24 @@ export default function Navigation() {
     return location.pathname === path && !location.hash;
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="relative z-20 hidden md:block border-b backdrop-blur-md" style={{ borderColor: '#FFB000', backgroundColor: 'rgba(5, 6, 12, 0.72)' }}>
+      <nav className="fixed top-0 left-0 right-0 z-50 hidden md:block border-b backdrop-blur-md" style={{ borderColor: '#FFB000', backgroundColor: 'rgba(5, 6, 12, 0.72)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div style={{ fontFamily: 'Space Mono, monospace', color: '#FFB000' }} className="text-xl">
+            <Link
+              to="/"
+              onClick={scrollToTop}
+              style={{ fontFamily: 'Space Mono, monospace', color: '#FFB000' }}
+              className="text-xl hover:opacity-80 transition-opacity cursor-pointer"
+            >
               {'<RP />'}
-            </div>
+            </Link>
             <div className="flex gap-8">
               {navItems.map((item) => (
                 <Link
@@ -51,12 +60,17 @@ export default function Navigation() {
       </nav>
 
       {/* Mobile Navigation */}
-      <nav className="relative z-20 md:hidden border-b backdrop-blur-md" style={{ borderColor: '#FFB000', backgroundColor: 'rgba(5, 6, 12, 0.72)' }}>
+      <nav className="fixed top-0 left-0 right-0 z-50 md:hidden border-b backdrop-blur-md" style={{ borderColor: '#FFB000', backgroundColor: 'rgba(5, 6, 12, 0.72)' }}>
         <div className="px-4">
           <div className="flex justify-between items-center h-16">
-            <div style={{ fontFamily: 'Space Mono, monospace', color: '#FFB000' }} className="text-lg">
+            <Link
+              onClick={scrollToTop}
+              to="/"
+              style={{ fontFamily: 'Space Mono, monospace', color: '#FFB000' }}
+              className="text-lg hover:opacity-80 transition-opacity cursor-pointer"
+            >
               {'<RP />'}
-            </div>
+            </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
               style={{ color: '#FFB000' }}

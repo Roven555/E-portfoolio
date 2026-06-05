@@ -1,5 +1,5 @@
 import type { MouseEvent } from "react";
-import { ArrowDown, ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, GraduationCap, Briefcase, BookOpen, Building2, Globe, Mail, Phone } from "lucide-react";
 
 export default function Home() {
   const scrollToProjects = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -39,6 +39,51 @@ export default function Home() {
     window.requestAnimationFrame(animateScroll);
     window.history.pushState(null, "", "#projects");
   };
+
+  const education = [
+    {
+      institution: "Põlva Riigigümnaasium",
+      description: "Secondary education",
+      icon: <GraduationCap size={24} />,
+    },
+    {
+      institution: "Tartu Rakenduslik Kolledž (VOCO)",
+      description: "Studies in Software Development",
+      icon: <GraduationCap size={24} />,
+    },
+  ];
+
+  const workExperience = [
+    {
+      role: "Construction worker",
+      description: "Physical work, teamwork, and responsibility",
+      icon: <Briefcase size={24} />,
+    },
+    {
+      role: "Production worker",
+      description: "Precision and adherence to processes",
+      icon: <Briefcase size={24} />,
+    },
+    {
+      role: "Security guard",
+      description: "Responsibility, vigilance, and decision-making",
+      icon: <Briefcase size={24} />,
+    },
+  ];
+
+  const courses = [
+    "Bootstrap 5 - Net Ninja",
+    "Sass - Net Ninja",
+    "Node.js - Net Ninja",
+    "Express - Net Ninja",
+    "WooCommerce",
+  ];
+
+  const languages = [
+    { language: "Estonian", level: "Native" },
+    { language: "English", level: "Fluent" },
+    { language: "Russian", level: "Beginner" },
+  ];
 
   const skills = [
     { name: "HTML", iconClass: "devicon-html5-plain colored" },
@@ -114,33 +159,6 @@ export default function Home() {
           }
         }
 
-        @keyframes pulse-glow {
-          0%, 100% {
-            box-shadow: 0 0 10px rgba(255, 176, 0, 0.5);
-          }
-          50% {
-            box-shadow: 0 0 20px rgba(255, 176, 0, 0.8);
-          }
-        }
-
-        @keyframes borderShine {
-          0%, 100% {
-            border-color: #FFB000;
-          }
-          50% {
-            border-color: #ffc933;
-          }
-        }
-
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-5px);
-          }
-        }
-
         @keyframes staggerFadeIn {
           0% {
             opacity: 0;
@@ -158,6 +176,10 @@ export default function Home() {
 
         .hero-description {
           animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .card-item {
+          animation: staggerFadeIn 0.6s ease-out forwards;
         }
 
         .skill-item {
@@ -184,6 +206,14 @@ export default function Home() {
         .project-card:hover {
           box-shadow: 0 20px 40px rgba(255, 176, 0, 0.15), inset 0 0 20px rgba(255, 176, 0, 0.05);
         }
+
+        .contact-card {
+          animation: staggerFadeIn 0.6s ease-out forwards;
+        }
+
+        .contact-card:nth-child(1) { animation-delay: 0s; }
+        .contact-card:nth-child(2) { animation-delay: 0.2s; }
+        .contact-card:nth-child(3) { animation-delay: 0.4s; }
 
         .section-title {
           position: relative;
@@ -243,14 +273,29 @@ export default function Home() {
               className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-semibold hover:brightness-110 transition-all duration-300"
             >
               View Projects
-              <ArrowDown size={18} />
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
+              </svg>
+            </a>
+            <a
+              href="#about"
+              style={{
+                backgroundColor: '#FFB00020',
+                color: '#FFB000',
+                border: '1px solid #FFB000',
+                fontFamily: 'Space Mono, monospace',
+              }}
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-lg font-semibold hover:bg-yellow-500/20 transition-all duration-300"
+            >
+              About Me
             </a>
           </div>
         </div>
       </section>
 
-      {/* Personality Section */}
-      <section className="mb-16 md:mb-24">
+      {/* About Section */}
+      <section id="about" className="scroll-mt-24 mb-16 md:mb-24">
         <h2
           style={{
             fontFamily: 'Space Mono, monospace',
@@ -258,33 +303,124 @@ export default function Home() {
           }}
           className="section-title text-2xl md:text-3xl mb-6"
         >
-          {'> Personality'}
+          {'> About'}
         </h2>
         <div
           style={{
             backgroundColor: '#1A1A1A',
             border: '1px solid #FFB000',
           }}
-          className="p-6 md:p-8 backdrop-blur-sm glow-border rounded-lg transition-all duration-300"
+          className="p-8 md:p-12 backdrop-blur-sm glow-border rounded-lg transition-all duration-300 space-y-6"
         >
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { emoji: "🥊", title: "MMA", desc: "Interested in MMA and sports" },
-              { emoji: "💪", title: "Active", desc: "Active lifestyle and healthy living" },
-              { emoji: "🎯", title: "Disciplined", desc: "Strong discipline and consistency" }
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                style={{
-                  animation: `fadeInUp 0.6s ease-out ${0.1 * idx}s both`,
-                }}
-              >
-                <div style={{ color: '#FFB000', fontFamily: 'Space Mono, monospace' }} className="mb-2 text-lg font-bold">
-                  {item.emoji} {item.title}
+          <p style={{ color: '#FFFFFF' }} className="text-lg md:text-2xl leading-loose">
+            I'm Roven, a 19-year-old Junior Software Developer student at Tartu Vocational College (VOCO). Technology has been part of my life since childhood, but the real spark came when my friends and I developed our own game servers – which inspired my definitive goal to turn this passion into a professional career.
+          </p>
+          <p style={{ color: '#FFFFFF' }} className="text-lg md:text-2xl leading-loose">
+            I love building projects from the ground up and tackling complex challenges. One of my proudest achievements so far is winning a hackathon with a classmate, which gave me strong confidence in teamwork and high-pressure situations. I stay connected to the industry through daily discussions with developer friends and a mentor who shares valuable insights from his own development firm.
+          </p>
+          <p style={{ color: '#FFFFFF' }} className="text-lg md:text-2xl leading-loose">
+            Outside of coding, I lead an active life – spending time with my girlfriend and friends, playing outdoor sports, and recharging in the sauna to maintain a healthy work-life balance.
+          </p>
+          <p style={{ color: '#FFFFFF' }} className="text-lg md:text-2xl leading-loose">
+            I am always open to exciting new challenges and projects to apply my knowledge, gain real-world experience, and continuously grow as a developer.
+          </p>
+        </div>
+      </section>
+
+      {/* Education Section */}
+      <section id="education" className="scroll-mt-24 mb-16 md:mb-24">
+        <h2
+          style={{
+            fontFamily: 'Space Mono, monospace',
+            color: '#FFB000',
+          }}
+          className="section-title text-2xl md:text-3xl mb-6"
+        >
+          {'> Education'}
+        </h2>
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+          {education.map((edu, index) => (
+            <div
+              key={index}
+              style={{
+                backgroundColor: '#1A1A1A',
+                border: '1px solid #FFB000',
+                animation: `staggerFadeIn 0.6s ease-out ${index * 0.1}s both`,
+              }}
+              className="card-item p-6 backdrop-blur-sm hover:scale-105 transition-all duration-300 glow-border rounded-lg"
+            >
+              <div className="flex items-start gap-4">
+                <div style={{ color: '#FFB000' }} className="flex-shrink-0 transition-transform duration-300 hover:scale-110">
+                  {edu.icon}
                 </div>
-                <p style={{ color: '#888888' }} className="text-sm leading-relaxed">
-                  {item.desc}
-                </p>
+                <div>
+                  <h3
+                    style={{
+                      color: '#FFFFFF',
+                      fontFamily: 'Space Mono, monospace',
+                    }}
+                    className="text-lg font-bold mb-2"
+                  >
+                    {edu.institution}
+                  </h3>
+                  <p style={{ color: '#888888' }} className="text-sm leading-relaxed">
+                    {edu.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Work Experience Section */}
+      <section id="experience" className="scroll-mt-24 mb-16 md:mb-24">
+        <h2
+          style={{
+            fontFamily: 'Space Mono, monospace',
+            color: '#FFB000',
+          }}
+          className="section-title text-2xl md:text-3xl mb-6"
+        >
+          {'> Work Experience'}
+        </h2>
+        <div
+          style={{
+            backgroundColor: '#1A1A1A',
+            border: '1px solid #FFB000',
+          }}
+          className="p-6 md:p-8 backdrop-blur-sm mb-4 glow-border rounded-lg transition-all duration-300"
+        >
+          <p style={{ color: '#888888' }} className="mb-6 text-sm md:text-base leading-relaxed">
+            A foundation of hard work and discipline
+          </p>
+          <div className="space-y-4">
+            {workExperience.map((job, index) => (
+              <div
+                key={index}
+                style={{
+                  animation: `fadeInUp 0.6s ease-out ${0.1 * index}s both`,
+                  borderBottom: index !== workExperience.length - 1 ? '1px solid #FFB000' : 'none',
+                }}
+                className="flex items-start gap-4 pb-4"
+              >
+                <div style={{ color: '#FFB000' }} className="flex-shrink-0 transition-transform duration-300 hover:scale-110">
+                  {job.icon}
+                </div>
+                <div className="flex-1">
+                  <h3
+                    style={{
+                      color: '#FFFFFF',
+                      fontFamily: 'Space Mono, monospace',
+                    }}
+                    className="mb-1 font-semibold"
+                  >
+                    {job.role}
+                  </h3>
+                  <p style={{ color: '#888888' }} className="text-sm leading-relaxed">
+                    {job.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -292,7 +428,7 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section className="mb-16 md:mb-24">
+      <section id="skills" className="scroll-mt-24 mb-16 md:mb-24">
         <h2
           style={{
             fontFamily: 'Space Mono, monospace',
@@ -432,6 +568,159 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Contact Section */}
+      <section id="contact" className="scroll-mt-24 mb-16 md:mb-24">
+        <h2
+          style={{
+            fontFamily: 'Space Mono, monospace',
+            color: '#FFB000',
+          }}
+          className="section-title text-2xl md:text-3xl mb-6 text-center"
+        >
+          {'> Let\'s Connect'}
+        </h2>
+        <p style={{ color: '#888888' }} className="text-center mb-8 text-lg md:text-xl leading-relaxed">
+          Let's build something together!
+        </p>
+
+        {/* Contact Info Cards */}
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {/* Email Card */}
+          <div
+            style={{
+              backgroundColor: '#1A1A1A',
+              border: '2px solid #FFB000',
+            }}
+            className="contact-card p-8 backdrop-blur-sm hover:scale-105 transition-all duration-300 glow-border rounded-lg"
+          >
+            <div className="flex items-center gap-4 mb-4">
+              <div
+                style={{
+                  backgroundColor: '#FFB000',
+                  color: '#0F0F0F',
+                }}
+                className="p-3 rounded-lg transition-transform duration-300 hover:scale-110"
+              >
+                <Mail size={28} />
+              </div>
+              <h3
+                style={{
+                  color: '#FFB000',
+                  fontFamily: 'Space Mono, monospace',
+                }}
+                className="text-xl font-bold"
+              >
+                Email
+              </h3>
+            </div>
+            <a
+              href="mailto:roven.piho@voco.ee"
+              style={{
+                color: '#FFFFFF',
+                fontFamily: 'Space Mono, monospace',
+              }}
+              className="text-lg md:text-xl hover:text-yellow-300 transition-colors duration-300 break-all font-semibold"
+            >
+              roven.piho@voco.ee
+            </a>
+          </div>
+
+          {/* Phone Card */}
+          <div
+            style={{
+              backgroundColor: '#1A1A1A',
+              border: '2px solid #FFB000',
+            }}
+            className="contact-card p-8 backdrop-blur-sm hover:scale-105 transition-all duration-300 glow-border rounded-lg"
+          >
+            <div className="flex items-center gap-4 mb-4">
+              <div
+                style={{
+                  backgroundColor: '#FFB000',
+                  color: '#0F0F0F',
+                }}
+                className="p-3 rounded-lg transition-transform duration-300 hover:scale-110"
+              >
+                <Phone size={28} />
+              </div>
+              <h3
+                style={{
+                  color: '#FFB000',
+                  fontFamily: 'Space Mono, monospace',
+                }}
+                className="text-xl font-bold"
+              >
+                Phone
+              </h3>
+            </div>
+            <a
+              href="tel:+37258141403"
+              style={{
+                color: '#FFFFFF',
+                fontFamily: 'Space Mono, monospace',
+              }}
+              className="text-lg md:text-xl hover:text-yellow-300 transition-colors duration-300 font-semibold"
+            >
+              +372 58 141 403
+            </a>
+          </div>
+
+          {/* GitHub Card */}
+          <div
+            style={{
+              backgroundColor: '#1A1A1A',
+              border: '2px solid #FFB000',
+            }}
+            className="contact-card p-8 backdrop-blur-sm hover:scale-105 transition-all duration-300 glow-border rounded-lg"
+          >
+            <div className="flex items-center gap-4 mb-4">
+              <div
+                style={{
+                  backgroundColor: '#FFB000',
+                  color: '#0F0F0F',
+                }}
+                className="p-3 rounded-lg transition-transform duration-300 hover:scale-110"
+              >
+                <Github size={28} />
+              </div>
+              <h3
+                style={{
+                  color: '#FFB000',
+                  fontFamily: 'Space Mono, monospace',
+                }}
+                className="text-xl font-bold"
+              >
+                GitHub
+              </h3>
+            </div>
+            <a
+              href="https://github.com/Roven555"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: '#FFFFFF',
+                fontFamily: 'Space Mono, monospace',
+              }}
+              className="text-lg md:text-xl hover:text-yellow-300 transition-colors duration-300 break-all font-semibold"
+            >
+              github.com/Roven555
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <div className="mt-16 text-center border-t" style={{ borderColor: '#FFB000' }}>
+        <p
+          style={{
+            color: '#888888',
+            fontFamily: 'Space Mono, monospace',
+          }}
+          className="mt-8 text-sm font-medium"
+        >
+          {'Roven Piho 2026'}
+        </p>
+      </div>
     </div>
   );
 }

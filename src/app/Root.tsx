@@ -22,7 +22,7 @@ export default function Root() {
         <div className="stars stars-large" />
       </div>
       <Navigation />
-      <main className="relative z-10">
+      <main className="relative z-10 pt-16">
         <Outlet />
       </main>
     </div>

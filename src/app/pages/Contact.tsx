@@ -158,7 +158,7 @@ export default function Contact() {
               }}
               className="text-lg md:text-xl hover:text-yellow-300 transition-colors duration-300 font-semibold"
             >
-              +372 58141403
+              +372 58 141 403
             </a>
           </div>
 
