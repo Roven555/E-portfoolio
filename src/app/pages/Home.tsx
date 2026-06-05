@@ -40,6 +40,44 @@ export default function Home() {
     window.history.pushState(null, "", "#projects");
   };
 
+  const scrollToAbout = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+
+    const target = document.querySelector("#about");
+    if (!target) {
+      return;
+    }
+
+    const startPosition = window.scrollY;
+    const targetPosition = target.getBoundingClientRect().top + window.scrollY - 96;
+    const distance = targetPosition - startPosition;
+    const duration = 1600;
+    let startTime: number | null = null;
+
+    const easeInOutCubic = (progress: number) =>
+      progress < 0.5
+        ? 4 * progress * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+    const animateScroll = (currentTime: number) => {
+      if (startTime === null) {
+        startTime = currentTime;
+      }
+
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      window.scrollTo(0, startPosition + distance * easeInOutCubic(progress));
+
+      if (progress < 1) {
+        window.requestAnimationFrame(animateScroll);
+      }
+    };
+
+    window.requestAnimationFrame(animateScroll);
+    window.history.pushState(null, "", "#about");
+  };
+
   const education = [
     {
       institution: "Põlva Riigigümnaasium",
@@ -99,20 +137,20 @@ export default function Home() {
     {
       id: 1,
       name: "Teraskopp OÜ",
-      description: "Website for a timber and forest machinery business showcasing services and equipment.",
+      description: "Team-built website for a timber and forest machinery business showcasing services and equipment.",
       image: "/images/Teraskopp.png",
       liveUrl: "https://teraskopp3.vercel.app",
       githubUrl: "https://github.com/Roven555/Teraskopp-3",
-      tags: ["React", "TypeScript", "Tailwind CSS"],
+      tags: ["React", "TypeScript", "Tailwind CSS", "Teamwork"],
     },
     {
       id: 2,
       name: "FilmiRiiul",
-      description: "Movie shelf app for browsing, organizing, and tracking films in a clean interface.",
+      description: "Team-built movie shelf app for browsing, organizing, and tracking films in a clean interface.",
       image: "/images/FilmiRiiul.png",
       liveUrl: "https://rakenduse-loomine-rho.vercel.app",
       githubUrl: "https://github.com/Roven555/Rakenduse-loomine",
-      tags: ["React", "TypeScript", "Tailwind CSS"],
+      tags: ["React", "TypeScript", "Tailwind CSS", "Teamwork"],
     },
     {
       id: 3,
@@ -280,6 +318,7 @@ export default function Home() {
             </a>
             <a
               href="#about"
+              onClick={scrollToAbout}
               style={{
                 backgroundColor: '#FFB00020',
                 color: '#FFB000',
