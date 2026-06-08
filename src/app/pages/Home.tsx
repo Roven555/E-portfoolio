@@ -1,5 +1,5 @@
 import type { MouseEvent } from "react";
-import { ExternalLink, Github, GraduationCap, Briefcase, BookOpen, Building2, Globe, Mail, Phone } from "lucide-react";
+import { ExternalLink, Github, GraduationCap, Briefcase, BookOpen, Building2, Globe, Mail, Phone, HardHat, Factory, Shield } from "lucide-react";
 
 export default function Home() {
   const scrollToProjects = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -95,17 +95,17 @@ export default function Home() {
     {
       role: "Construction worker",
       description: "Physical work, teamwork, and responsibility",
-      icon: <Briefcase size={24} />,
+      icon: <HardHat size={24} />,
     },
     {
       role: "Production worker",
       description: "Precision and adherence to processes",
-      icon: <Briefcase size={24} />,
+      icon: <Factory size={24} />,
     },
     {
       role: "Security guard",
       description: "Responsibility, vigilance, and decision-making",
-      icon: <Briefcase size={24} />,
+      icon: <Shield size={24} />,
     },
   ];
 
@@ -700,7 +700,7 @@ export default function Home() {
               }}
               className="text-lg md:text-xl hover:text-yellow-300 transition-colors duration-300 font-semibold"
             >
-              +372 58 141 403
+              +372 5814 1403
             </a>
           </div>
 
