@@ -366,6 +366,45 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Skills Section */}
+      <section id="skills" className="scroll-mt-24 mb-16 md:mb-24">
+        <h2
+          style={{
+            fontFamily: 'Space Mono, monospace',
+            color: '#FFB000',
+          }}
+          className="section-title text-2xl md:text-3xl mb-6"
+        >
+          {'> Technical Skills'}
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {skills.map((skill) => (
+            <div
+              key={skill.name}
+              style={{
+                backgroundColor: '#1A1A1A',
+                border: '1px solid #FFB000',
+              }}
+              className="skill-item group p-4 text-center hover:scale-110 transition-all duration-300 cursor-pointer backdrop-blur-sm glow-border rounded-lg"
+            >
+              <i
+                className={`${skill.iconClass} block text-5xl mb-3 transition-transform duration-300 group-hover:animate-bounce`}
+                aria-hidden="true"
+              />
+              <div
+                style={{
+                  color: '#FFFFFF',
+                  fontFamily: 'Space Mono, monospace',
+                }}
+                className="text-sm font-semibold"
+              >
+                {skill.name}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Education Section */}
       <section id="education" className="scroll-mt-24 mb-16 md:mb-24">
         <h2
@@ -463,45 +502,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section id="skills" className="scroll-mt-24 mb-16 md:mb-24">
-        <h2
-          style={{
-            fontFamily: 'Space Mono, monospace',
-            color: '#FFB000',
-          }}
-          className="section-title text-2xl md:text-3xl mb-6"
-        >
-          {'> Technical Skills'}
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {skills.map((skill) => (
-            <div
-              key={skill.name}
-              style={{
-                backgroundColor: '#1A1A1A',
-                border: '1px solid #FFB000',
-              }}
-              className="skill-item group p-4 text-center hover:scale-110 transition-all duration-300 cursor-pointer backdrop-blur-sm glow-border rounded-lg"
-            >
-              <i
-                className={`${skill.iconClass} block text-5xl mb-3 transition-transform duration-300 group-hover:animate-bounce`}
-                aria-hidden="true"
-              />
-              <div
-                style={{
-                  color: '#FFFFFF',
-                  fontFamily: 'Space Mono, monospace',
-                }}
-                className="text-sm font-semibold"
-              >
-                {skill.name}
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 
