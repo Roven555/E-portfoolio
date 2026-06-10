@@ -1,7 +1,10 @@
 import type { MouseEvent } from "react";
-import { ExternalLink, Github, GraduationCap, Briefcase, BookOpen, Building2, Globe, Mail, Phone, HardHat, Factory, Shield } from "lucide-react";
+import { useState } from "react";
+import { ExternalLink, Github, GraduationCap, Briefcase, BookOpen, Building2, Globe, Mail, Phone, HardHat, Factory, Shield, ChevronDown } from "lucide-react";
 
 export default function Home() {
+  const [expandAbout, setExpandAbout] = useState(false);
+
   const scrollToProjects = (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
 
@@ -349,20 +352,48 @@ export default function Home() {
             backgroundColor: '#1A1A1A',
             border: '1px solid #FFB000',
           }}
-          className="p-8 md:p-12 backdrop-blur-sm glow-border rounded-lg transition-all duration-300 space-y-6"
+          className="p-6 md:p-8 backdrop-blur-sm glow-border rounded-lg transition-all duration-300"
         >
-          <p style={{ color: '#FFFFFF' }} className="text-lg md:text-2xl leading-loose">
-            I'm Roven, a 19-year-old Junior Software Developer student at Tartu Vocational College (VOCO). Technology has been part of my life since childhood, but the real spark came when my friends and I developed our own game servers – which inspired my definitive goal to turn this passion into a professional career.
-          </p>
-          <p style={{ color: '#FFFFFF' }} className="text-lg md:text-2xl leading-loose">
-            I love building projects from the ground up and tackling complex challenges. One of my proudest achievements so far is winning a hackathon with a classmate, which gave me strong confidence in teamwork and high-pressure situations. I stay connected to the industry through daily discussions with developer friends and a mentor who shares valuable insights from his own development firm.
-          </p>
-          <p style={{ color: '#FFFFFF' }} className="text-lg md:text-2xl leading-loose">
-            Outside of coding, I lead an active life – spending time with my girlfriend and friends, playing outdoor sports, and recharging in the sauna to maintain a healthy work-life balance.
-          </p>
-          <p style={{ color: '#FFFFFF' }} className="text-lg md:text-2xl leading-loose">
-            I am always open to exciting new challenges and projects to apply my knowledge, gain real-world experience, and continuously grow as a developer.
-          </p>
+          <div style={{ color: '#FFFFFF' }} className="text-base md:text-lg leading-relaxed space-y-4">
+            {/* Main intro paragraph */}
+            <p className="text-gray-100">
+              I'm Roven, a 19-year-old Junior Software Developer student at Tartu Vocational College (VOCO). Technology has been part of my life since childhood, but the real spark came when my friends and I developed our own game servers – which inspired my definitive goal to turn this passion into a professional career.
+            </p>
+
+            {/* Expandable content */}
+            <div
+              className="overflow-hidden transition-all duration-300"
+              style={{
+                maxHeight: expandAbout ? '500px' : '0px',
+                opacity: expandAbout ? 1 : 0,
+              }}
+            >
+              <p className="text-gray-200 pt-4">
+                I love building projects from the ground up and tackling complex challenges. One of my proudest achievements so far is winning a hackathon with a classmate, which gave me strong confidence in teamwork and high-pressure situations. I stay connected to the industry through daily discussions with developer friends and a mentor who shares valuable insights from his own development firm.
+              </p>
+              <p className="text-gray-200 pt-4">
+                Outside of coding, I lead an active life – spending time with my girlfriend and friends, playing outdoor sports, and recharging in the sauna to maintain a healthy work-life balance.
+              </p>
+              <p className="text-gray-200 pt-4">
+                I am always open to exciting new challenges and projects to apply my knowledge, gain real-world experience, and continuously grow as a developer.
+              </p>
+            </div>
+
+            {/* Read More Button */}
+            <button
+              onClick={() => setExpandAbout(!expandAbout)}
+              style={{
+                color: '#FFB000',
+              }}
+              className="mt-4 inline-flex items-center gap-2 font-semibold hover:opacity-80 transition-opacity duration-300 text-sm md:text-base"
+            >
+              {expandAbout ? 'Read Less' : 'Read More'}
+              <ChevronDown
+                size={18}
+                className={`transition-transform duration-300 ${expandAbout ? 'rotate-180' : ''}`}
+              />
+            </button>
+          </div>
         </div>
       </section>
 
