@@ -83,12 +83,12 @@ export default function Home() {
 
   const education = [
     {
-      institution: "Põlva Riigigümnaasium",
+      institution: "Põlva Gymnasium",
       description: "Secondary education",
       icon: <GraduationCap size={24} />,
     },
     {
-      institution: "Tartu Rakenduslik Kolledž (VOCO)",
+      institution: "Tartu Vocational College",
       description: "Studies in Software Development",
       icon: <GraduationCap size={24} />,
     },
@@ -555,10 +555,10 @@ export default function Home() {
                 backgroundColor: '#1A1A1A',
                 border: '1px solid #FFB000',
               }}
-              className="project-card overflow-hidden backdrop-blur-sm group cursor-pointer rounded-lg"
+              className="project-card overflow-hidden backdrop-blur-sm group cursor-pointer rounded-lg flex flex-col h-full"
             >
               {/* Project Image */}
-              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-gray-800 to-black">
+              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-gray-800 to-black flex-shrink-0">
                 <img 
                   src={project.image} 
                   alt={project.name}
@@ -568,40 +568,42 @@ export default function Home() {
               </div>
 
               {/* Project Content */}
-              <div className="p-6">
-                <h3
-                  style={{
-                    color: '#FFB000',
-                    fontFamily: 'Space Mono, monospace',
-                  }}
-                  className="text-lg font-bold mb-2 group-hover:text-yellow-300 transition-colors"
-                >
-                  {project.name}
-                </h3>
-                <p style={{ color: '#CCCCCC' }} className="text-sm mb-4 leading-relaxed">
-                  {project.description}
-                </p>
+              <div className="p-6 flex flex-col flex-1">
+                <div className="flex-1">
+                  <h3
+                    style={{
+                      color: '#FFB000',
+                      fontFamily: 'Space Mono, monospace',
+                    }}
+                    className="text-lg font-bold mb-2 group-hover:text-yellow-300 transition-colors"
+                  >
+                    {project.name}
+                  </h3>
+                  <p style={{ color: '#CCCCCC' }} className="text-sm mb-4 leading-relaxed">
+                    {project.description}
+                  </p>
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag, idx) => (
-                    <span
-                      key={tag}
-                      style={{
-                        backgroundColor: '#FFB00020',
-                        color: '#FFB000',
-                        border: '1px solid #FFB000',
-                        animation: `fadeInUp 0.4s ease-out ${0.1 * idx}s both`,
-                      }}
-                      className="text-xs px-3 py-1 rounded-full font-medium transition-all duration-300 hover:bg-yellow-500/20"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map((tag, idx) => (
+                      <span
+                        key={tag}
+                        style={{
+                          backgroundColor: '#FFB00020',
+                          color: '#FFB000',
+                          border: '1px solid #FFB000',
+                          animation: `fadeInUp 0.4s ease-out ${0.1 * idx}s both`,
+                        }}
+                        className="text-xs px-3 py-1 rounded-full font-medium transition-all duration-300 hover:bg-yellow-500/20"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
                 {/* Links */}
-                <div className="flex gap-3">
+                <div className="flex gap-3 mt-auto">
                   {project.liveUrl !== "#" && (
                     <a
                       href={project.liveUrl}
